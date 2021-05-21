@@ -35,7 +35,10 @@
 
 <div class="center">
 
-<p>for years B.C. simply enter a minus sign;<br>for years in the Thai calendar subtract one year</p>
+    <label for="date-style" style="font-size: smaller; margin-right: 0.1rem;">Date style:</label><input type="radio" id="date-style-thai" name="date-style" value="thai">
+    <label for="date-style-thai" style="font-size: smaller; margin-right: 0.2rem;">Thai</label>
+    <input type="radio" id="date-style-sl" name="date-style" value="sl">
+    <label for="date-style-sl" style="font-size: smaller">Sri Lankan</label><br>
 
 <div id="conversion-div">
   <div>
@@ -54,20 +57,18 @@
     <input id="christian-era" type="number" placeholder="year (e.g. 2021)" style="width: 90%;">
     </input>
   </div>
+
+
   <div style="align-self: center;">
     <span>&#8660;</span>
   </div>
+
   <div class="era-input-parent">
     <input id="buddhist-era" type="number" placeholder="year (e.g. 2021)" style="width: 90%;">
     </input>
   </div>
   <div id="date-style-container" style="display: flex; flex-direction: row;">
 
-    <label for="date-style" style="font-size: smaller; margin-right: 0.1rem;">Date style:</label>
-    <input type="radio" id="date-style-thai" name="date-style" value="thai">
-    <label for="date-style-thai" style="font-size: smaller; margin-right: 0.2rem;">Thai</label><br>
-    <input type="radio" id="date-style-sl" name="date-style" value="sl">
-    <label for="date-style-sl" style="font-size: smaller">Sri Lankan</label><br>
   </div>
 </div>
 
@@ -102,13 +103,13 @@ const getOffset = () => {
 
 $('#christian-era').keyup(function() {
   const ce = parseFloat($('#christian-era').val())
-  const be = ce + (544 + getOffset())
+  const be = ce + (543 + getOffset())
   $('#buddhist-era').val(be)
 })
 
 const updateChristianEra = () => {
   const be = parseFloat($('#buddhist-era').val())
-  const ce = be - (544 + getOffset())
+  const ce = be - (543 + getOffset())
   $('#christian-era').val(ce)
 }
 
@@ -128,7 +129,7 @@ $('input[type=radio][name=date-style]').on('change', function() {
     display: grid; 
     grid-template-rows: auto 50% 50%; 
     grid-template-columns: 50% auto 50%; 
-    margin: 1rem 5rem 1rem 5rem; 
+    margin: 1rem 10rem 1rem 10rem; 
     padding: 0rem 1.5rem 1rem 0rem; 
     border: 1px solid lightgrey; 
     border-radius: 0.2rem;    
